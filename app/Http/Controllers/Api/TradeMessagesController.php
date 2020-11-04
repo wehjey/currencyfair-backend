@@ -36,7 +36,7 @@ class TradeMessagesController extends Controller
 
             return okResponse(201, 'Successful', new TradeMessage($tradeMessage));
         } catch (Exception $e) {
-            return errorResponse(500, 'An error occurred. Please try again');
+            return errorResponse(500, $e->getMessage());
         }
     }
 }
