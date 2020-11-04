@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\TradeMessageInterface;
 use App\Http\Requests\TradeMessageRequest;
+use App\Http\Resources\RateChange;
+use App\Http\Resources\RateChangeCollection;
 use App\Http\Resources\TradeMessage;
 use App\Http\Resources\TradeMessageCollection;
 use Exception;
 
 class TradeMessagesController extends Controller
 {
-
     private $tradeMessage;
 
     public function __construct(TradeMessageInterface $tradeMessage)
@@ -60,5 +61,37 @@ class TradeMessagesController extends Controller
         } catch (Exception $e) {
             return errorResponse(500, $e->getMessage());
         }
+    }
+
+    /**
+     * Returns rates by currency from/to
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fetchRatesByCurrency()
+    {
+        if (request()->has(['currencyFrom', 'currencyTo'])) {
+            return okResponse(
+                200,
+                'Successful',
+                new RateChange($this->tradeMessage->fetchRatesByCurrency(request('currencyFrom'), request('currencyTo')))
+            );
+        } else {
+            return errorResponse(400, 'No currency from and currency to');
+        }
+    }
+
+    /**
+     * Returns all rate changes
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fetchAllRatesChanges()
+    {
+        return okResponse(
+            200,
+            'Successful',
+            new RateChangeCollection($this->tradeMessage->fetchAllRatesChanges())
+        );
     }
 }

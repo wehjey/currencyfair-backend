@@ -3,8 +3,6 @@
 
 namespace App\Http\Repositories;
 
-use App\Models\TradeMessage;
-
 interface TradeMessageInterface
 {
     /**
@@ -22,7 +20,24 @@ interface TradeMessageInterface
      *
      * @param array $data
      *
-     * @return TradeMessage
+     * @return \App\Models\TradeMessage
      */
-    public function store(array $data);
+    public function store($data);
+
+    /**
+     * Fetch rate changes by currency
+     *
+     * @param string $currency_from
+     * @param string $currency_to
+     * 
+     * @return \App\Models\RateChange
+     */
+    public function fetchRatesByCurrency($currency_from, $currency_to);
+
+    /**
+     * Fetch all rate changes
+     * 
+     * @return \App\Models\RateChange
+     */
+    public function fetchAllRatesChanges();
 }

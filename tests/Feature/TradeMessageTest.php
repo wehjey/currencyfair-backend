@@ -35,7 +35,16 @@ class TradeMessageTest extends TestCase
                     'status',
                     'success',
                     'message',
-                    'data',
+                    'data' => [
+                        'user_id',
+                        'currency_from',
+                        'currency_to',
+                        'originating_country',
+                        'amount_sell',
+                        'amount_buy',
+                        'rate',
+                        'time_placed'
+                    ],
                 ]
             );
     }
@@ -80,7 +89,18 @@ class TradeMessageTest extends TestCase
                     'success',
                     'message',
                     'data' => [
-                        'records',
+                        'records' => [
+                            '*' => [
+                                'user_id',
+                                'currency_from',
+                                'currency_to',
+                                'originating_country',
+                                'amount_sell',
+                                'amount_buy',
+                                'rate',
+                                'time_placed'
+                            ]
+                        ],
                         'pagination' => [
                             'total',
                             'count',
