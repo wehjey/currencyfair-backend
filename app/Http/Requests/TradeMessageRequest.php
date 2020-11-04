@@ -34,4 +34,20 @@ class TradeMessageRequest extends FormRequest
             'time_placed' => 'required|date_format:d-m-y H:i:s',
         ];
     }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $time_placed = explode('-', strtolower($this->time_placed));
+        if (count($time_placed) == 3) {
+            $time_placed = $time_placed[0]. '-' . getMonths()[$time_placed[1]] . '-' . $time_placed[2];
+            $this->merge([
+                'time_placed' => $time_placed,
+            ]);
+        }
+    }
 }
