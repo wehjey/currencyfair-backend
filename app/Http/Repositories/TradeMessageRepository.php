@@ -21,4 +21,12 @@ class TradeMessageRepository implements TradeMessageInterface
     {
         return $this->tradeMessage->create($data);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function fetch($limit = 10, $orderBy = 'DESC')
+    {
+        return $this->tradeMessage->orderBy('time_placed', $orderBy)->paginate($limit);
+    }
 }

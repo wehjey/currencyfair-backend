@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1/trade')->group(function() {
     Route::post('message', [TradeMessagesController::class, 'store']);
+    Route::get('message', [TradeMessagesController::class, 'index']);
 });
 
