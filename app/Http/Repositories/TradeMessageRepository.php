@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 use App\Http\Repositories\interfaces\TradeMessageInterface;
 use App\Models\RateChange;
 use App\Models\TradeMessage;
+use Illuminate\Support\Facades\DB;
 
 class TradeMessageRepository implements TradeMessageInterface
 {
@@ -93,5 +94,16 @@ class TradeMessageRepository implements TradeMessageInterface
     public function fetchAllRatesChanges()
     {
         return RateChange::all();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function fetchTotalCountryTransactions()
+    {
+        return $this->tradeMessage
+            ->select(DB::raw('count(*) as total, originating_country as country_code'))
+            ->groupBy('originating_country')
+            ->get();
     }
 }

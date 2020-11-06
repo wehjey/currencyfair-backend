@@ -39,4 +39,11 @@ interface TradeMessageInterface
      * @return \App\Models\RateChange
      */
     public function fetchAllRatesChanges();
+
+    /**
+     * Fetch total number of transactions per country
+     *
+     * @return \App\Models\TradeMessage
+     */
+    public function fetchTotalCountryTransactions();
 }
