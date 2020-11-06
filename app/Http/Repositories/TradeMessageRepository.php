@@ -2,9 +2,9 @@
 
 namespace App\Http\Repositories;
 
+use App\Http\Repositories\Interfaces\TradeMessageInterface;
 use App\Models\RateChange;
 use App\Models\TradeMessage;
-use App\Http\Repositories\Interfaces\TradeMessageInterface;
 
 class TradeMessageRepository implements TradeMessageInterface
 {
