@@ -94,4 +94,18 @@ class TradeMessagesController extends Controller
             new RateChangeCollection($this->tradeMessage->fetchAllRatesChanges())
         );
     }
+
+    /**
+     * Returns total transactions per country
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fetchTotalCountryTransactions()
+    {
+        return okResponse(
+            200,
+            'Successful',
+            $this->tradeMessage->fetchTotalCountryTransactions()
+        );
+    }
 }
