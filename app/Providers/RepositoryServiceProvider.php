@@ -3,7 +3,7 @@
 
 namespace App\Providers;
 
-use App\Http\Repositories\TradeMessageInterface;
+use App\Http\Repositories\Interfaces\TradeMessageInterface;
 use App\Http\Repositories\TradeMessageRepository;
 use Illuminate\Support\ServiceProvider;
 

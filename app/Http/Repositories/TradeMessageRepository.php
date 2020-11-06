@@ -4,7 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Models\RateChange;
 use App\Models\TradeMessage;
-use App\Http\Repositories\TradeMessageInterface;
+use App\Http\Repositories\Interfaces\TradeMessageInterface;
 
 class TradeMessageRepository implements TradeMessageInterface
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Repositories\TradeMessageInterface;
+use App\Http\Repositories\Interfaces\TradeMessageInterface;
 use App\Http\Requests\TradeMessageRequest;
 use App\Http\Resources\RateChange;
 use App\Http\Resources\RateChangeCollection;
