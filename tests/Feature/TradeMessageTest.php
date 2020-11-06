@@ -116,6 +116,33 @@ class TradeMessageTest extends TestCase
     }
 
     /**
+     * Test can view trade messages
+     */
+    public function testGetCountryTotalTransactions()
+    {
+        $response = $this->getJson($this->baseUrl . '/trade/country-transactions');
+        $response->assertStatus(200)
+            ->assertJson(
+                [
+                    'success' => true,
+                ]
+            )
+            ->assertJsonStructure(
+                [
+                    'status',
+                    'success',
+                    'message',
+                    'data' => [
+                        '*' => [
+                            'total',
+                            'country_code',
+                        ]
+                    ],
+                ]
+            );
+    }
+
+    /**
      * Valid post request
      *
      * @return array

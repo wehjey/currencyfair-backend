@@ -18,5 +18,6 @@ Route::prefix('v1/trade')->group(function() {
     Route::get('message', [TradeMessagesController::class, 'index']);
     Route::get('country-rates', [TradeMessagesController::class, 'fetchRatesByCurrency']);
     Route::get('all-rates', [TradeMessagesController::class, 'fetchAllRatesChanges']);
+    Route::get('country-transactions', [TradeMessagesController::class, 'fetchTotalCountryTransactions']);
 });
 
