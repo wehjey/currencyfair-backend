@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\TradeMessagesController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1/trade')->group(function() {
+    Route::post('message', [TradeMessagesController::class, 'store']);
+    Route::get('message', [TradeMessagesController::class, 'index']);
+    Route::get('country-rates', [TradeMessagesController::class, 'fetchRatesByCurrency']);
+    Route::get('all-rates', [TradeMessagesController::class, 'fetchAllRatesChanges']);
 });
+
