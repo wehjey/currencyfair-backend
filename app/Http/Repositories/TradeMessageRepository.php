@@ -2,7 +2,7 @@
 
 namespace App\Http\Repositories;
 
-use App\Http\Repositories\Interfaces\TradeMessageInterface;
+use App\Http\Repositories\interfaces\TradeMessageInterface;
 use App\Models\RateChange;
 use App\Models\TradeMessage;
 

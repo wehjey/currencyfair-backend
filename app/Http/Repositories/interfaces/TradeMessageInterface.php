@@ -1,7 +1,6 @@
 <?php
 
-
-namespace App\Http\Repositories\Interfaces;
+namespace App\Http\Repositories\interfaces;
 
 interface TradeMessageInterface
 {
@@ -29,14 +28,14 @@ interface TradeMessageInterface
      *
      * @param string $currency_from
      * @param string $currency_to
-     * 
+     *
      * @return \App\Models\RateChange
      */
     public function fetchRatesByCurrency($currency_from, $currency_to);
 
     /**
      * Fetch all rate changes
-     * 
+     *
      * @return \App\Models\RateChange
      */
     public function fetchAllRatesChanges();
