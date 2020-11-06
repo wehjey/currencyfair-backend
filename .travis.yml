@@ -19,4 +19,4 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit
+  - php artisan test
